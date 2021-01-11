@@ -1,0 +1,299 @@
+/* ==UserStyle==
+@name         Threema Web Dark
+@description  Dark, compact and customizable theme for Threema Web.
+@namespace    github.com/c4tz/threema-web-dark
+@homepageURL  https://github.com/c4tz/threema-web-dark
+@supportURL   https://github.com/c4tz/threema-web-dark/issues
+@updateURL    https://raw.githubusercontent.com/c4tz/threema-web-dark/master/twd.user.styl
+@author       c4tz (https://github.com/c4tz)
+@version      0.0.1
+@license      MIT
+@preprocessor stylus
+
+@var color custom-green 'Accent color (Green)' #24ac7f
+@var color custom-red 'Accent color 2 (Red)' #c6362c
+@var color custom-orange 'Accent color 3 (Orange)' #dd8d00
+@var color dark 'How dark shall it be?' #333
+@var color light 'Mostly text color' #eee
+@var text  bg-img  'Chat background image url' "'../img/wallpaper_light.png?'"
+@var range bg-img-op 'Chat Background image transparency' [0.9, 0.0, 1.0, 0.01]
+==/UserStyle== */
+
+@-moz-document domain("web.threema.ch") {
+
+    #conversation-chat .chat .message-in .bubble-triangle::after,
+    #conversation-chat .chat .message-in .message-body {
+        background-color: lighten(dark, 33.5%)
+    }
+
+    #conversation-chat .chat .message-out .bubble-triangle::after,
+    #conversation-chat .chat .message-out .message-body {
+        background-color: lighten(dark, 16.5%)
+    }
+
+    #welcome .scan md-input-container input::placeholder,
+    compose-area > div:first-child > div:nth-of-type(2) div.compose:empty::before {
+        color: lighten(dark, 41.5%)
+    }
+
+    #conversation {
+        background-image: linear-gradient(alpha(dark, bg-img-op), alpha(dark, bg-img-op)), url(bg-img)
+    }
+
+    .header-buttons {
+        filter: invert(1)
+    }
+
+    #messenger #detail > div.ng-scope .detail-header,
+    #navigation-topheader {
+        background-color: lighten(dark, 8.5%)
+    }
+
+    #navigation-conversations .conversation-wrapper .conversation .conversation-box .message-box .latest-message,
+    #navigation-conversations .conversation-wrapper .conversation .conversation-box .receiver-box,
+    .material-icons.md-dark,
+    .material-icons.md-medium-dark,
+    .md-button.md-icon-button.header-back-button md-icon,
+    body,
+    body.md-default-theme,
+    html,
+    html.md-default-theme,
+    md-menu-content.md-threema-theme md-menu-item,
+    md-menu-content.md-threema-theme md-menu-item md-icon {
+        color: light
+    }
+
+    #composeDiv,
+    #conversation,
+    #messenger #detail > div.ng-scope,
+    #navigation-header,
+    #welcome .scan md-input-container input {
+        background-color: dark
+    }
+
+    #conversation-chat .chat .message-body .message-info {
+        color: darken(light, 21.5%)
+    }
+
+    #conversation #conversation-quote,
+    #navigation-contacts .contact:hover,
+    #navigation-conversations .conversation-wrapper .conversation.active,
+    #navigation-conversations .conversation-wrapper .conversation:hover {
+        border-color: lighten(dark, 16.5%);
+        background-color: lighten(dark, 16.5%)
+    }
+
+    #navigation-contacts .contact,
+    #navigation-conversations .conversation-wrapper .conversation {
+        border-color: lighten(dark, 8.5%)
+    }
+
+    #messenger.show-detail #navigation,
+    #navigation-conversations .conversation-wrapper,
+    compose-area > div:first-child > div:nth-of-type(2) {
+        border-color: lighten(dark, 25%)
+    }
+
+    #conversation #conversation-footer,
+    #conversation-chat .chat .message-status .message-body,
+    #main,
+    #navigation-conversations,
+    .avatar.avatar-low > img,
+    .twemoji-picker {
+        background-color: lighten(dark, 8.5%)
+    }
+
+    #main-wrapper #main,
+    #main-wrapper:not(.wide) #main {
+        height: 100%
+    }
+
+    #main-wrapper {
+        height: 100%;
+        max-height: none;
+        width: 100%;
+        max-width: none
+    }
+
+    #main-wrapper footer,
+    #main-wrapper header {
+        display: none
+    }
+
+    #welcome .password-strength-indicator .unreached,
+    #welcome md-input-container.md-input-focused .password-strength-indicator .unreached,
+    md-menu-content.md-threema-theme {
+        background-color: lighten(dark, 25%)
+    }
+
+    #welcome .scan qrcode canvas {
+        border: 10px solid #fff
+    }
+
+    .md-button.md-threema-theme.md-fab,
+    md-nav-bar.md-threema-theme md-nav-ink-bar {
+        background-color: custom-green;
+        color: light
+    }
+
+    .md-button.md-threema-theme.md-fab:not([disabled]).md-focused,
+    .md-button.md-threema-theme.md-fab:not([disabled]):hover {
+        background-color: darken(custom-green, 33%)
+    }
+
+    #navigation-contacts .contact {
+        border-bottom: 1px solid lighten(dark, 25%)
+    }
+
+    ::-webkit-scrollbar {
+        border: 1px solid dark;
+        background-color: dark;
+        width: 6px
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: lighten(dark, 16.5%)
+    }
+
+    #navigation-conversations .conversation-wrapper .conversation.unread {
+        border-image: linear-gradient(to right, custom-red, custom-red 50%, lighten(dark, 8.5%) 50%, lighten(dark, 8.5%) 100%) 1 100%
+    }
+
+    #navigation-conversations .conversation-wrapper .conversation.unread:hover {
+        border-image: linear-gradient(to right, custom-red, custom-red 50%, lighten(dark, 16.5%) 50%, lighten(dark, 16.5%) 100%) 1 100%
+    }
+
+    #navigation-conversations .conversation-wrapper .conversation .badge.unread-count {
+        background-color: custom-red
+    }
+
+    .twemoji-picker .tab [type=radio]:checked ~ label {
+        border-bottom: 1px solid lighten(dark, 16.5%);
+        background: lighten(dark, 16.5%)
+    }
+
+    .twemoji-picker .tab label {
+        border: 1px solid lighten(dark, 8.5%);
+        background: lighten(dark, 8.5%)
+    }
+
+    .twemoji-picker .tab .content {
+        background-color: lighten(dark, 16.5%);
+        border-color: lighten(dark, 16.5%)
+    }
+
+    md-card.md-threema-theme {
+        color: light;
+        background-color: lighten(dark, 8.5%)
+    }
+
+    .md-button.md-threema-theme.md-raised:not([disabled]):hover {
+        background-color: #999
+    }
+
+    .md-button.md-threema-theme.md-raised:not([disabled]) {
+        background-color: lighten(dark, 33.5%)
+    }
+
+    .md-button.md-threema-theme.md-raised,
+    .verification-dots div {
+        background-color: lighten(dark, 33.5%)
+    }
+
+    .md-button.md-threema-theme.md-fab:not([disabled]),
+    .md-button.md-threema-theme.md-raised:not([disabled]) {
+        color: light
+    }
+
+    .md-button.md-threema-theme.md-fab[disabled],
+    .md-button.md-threema-theme.md-raised[disabled],
+    .receiver-badge.contact-badge .contact-badge-identity {
+        color: darken(light, 35.75%)
+    }
+
+    a,
+    a:link,
+    a:visited {
+        color: lighten(custom-green, 33%)
+    }
+
+    .verification-dots.level3 div {
+        background-color: custom-green
+    }
+
+    .verification-dots.level1 div:nth-of-type(1) {
+        background-color: custom-red
+    }
+
+    .verification-dots.level2 div:nth-of-type(1),
+    .verification-dots.level2 div:nth-of-type(2) {
+        background-color: custom-orange
+    }
+
+    dl.key-values dt {
+        color: custom-green
+    }
+
+    .avatar.avatar-low > img {
+        filter: brightness(90%)
+    }
+
+    .material-icons.md-dark.user-ack,
+    .material-icons.md-medium-dark.user-ack {
+        color: darken(custom-green, 5%)
+    }
+
+    .material-icons.md-dark.user-dec,
+    .material-icons.md-medium-dark.user-dec {
+        color: darken(custom-orange, 5%)
+    }
+
+    md-dialog .md-actions .md-button,
+    md-dialog md-dialog-actions .md-button {
+        background-color: lighten(dark, 41.5%)
+    }
+
+    md-dialog,
+    md-dialog .md-actions,
+    md-dialog md-dialog-actions,
+    md-dialog.md-default-theme,
+    md-dialog.message-history-dialog md-dialog-content {
+        background-color: lighten(dark, 25%);
+        color: light
+    }
+
+    md-input-container .md-input,
+    md-input-container.md-default-theme .md-input {
+        color: light;
+        border-color: lighten(dark, 41.5%)
+    }
+
+    md-input-container:not(.md-input-has-value) input:focus::placeholder,
+    md-input-container:not(.md-input-has-value) input:not(:focus)::placeholder {
+        color: lighten(dark, 41.5%)
+    }
+
+    md-checkbox.md-default-theme:not(.md-checked) .md-icon,
+    md-checkbox:not(.md-checked) .md-icon {
+        border-color: light
+    }
+
+    md-checkbox.md-checked .md-ink-ripple,
+    md-checkbox.md-default-theme.md-checked .md-ink-ripple {
+        color: custom-green
+    }
+
+    md-checkbox.md-checked .md-icon,
+    md-checkbox.md-default-theme.md-checked .md-icon {
+        background-color: custom-green
+    }
+
+    .md-button.md-default-theme.md-primary,
+    .md-button.md-primary {
+        color: light
+    }
+
+    #main {
+        border-radius: 0
+    }
+}
